@@ -1,7 +1,6 @@
 import os
 from dotenv import load_dotenv
 from telegram.ext import Updater, CommandHandler
-from telegram import Update, CallbackContext
 
 # Load environment variables from .env file
 load_dotenv()
@@ -11,7 +10,7 @@ api_token = os.getenv("API_TOKEN")
 username = os.getenv("USERNAME")
 
 
-def start(update: Update, context: CallbackContext) -> None:
+def start(update, context):
     """
     Handle the /start command.
 
