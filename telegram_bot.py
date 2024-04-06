@@ -9,10 +9,12 @@ load_dotenv()
 BOT_TOKEN = os.getenv("API_TOKEN")
 username = os.getenv("USERNAME")
 
+# Added an instance of the bot
 bot = telebot.TeleBot(BOT_TOKEN)
 
 @bot.message_handler(commands=['start', 'hello'])
 def send_welcome(message):
+    # This messsage loads when the bot is started
     bot.reply_to(message, "Wassup, how are you doing?")
 
 @bot.message_handler(func=lambda msg: True)
