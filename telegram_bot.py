@@ -12,6 +12,7 @@ username = os.getenv("USERNAME")
 # Added an instance of the bot
 bot = telebot.TeleBot(BOT_TOKEN)
 
+# The bot will hande messages
 @bot.message_handler(commands=['start', 'hello'])
 def send_welcome(message):
     # This messsage loads when the bot is started
