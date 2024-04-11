@@ -16,6 +16,12 @@ bot = telebot.TeleBot(BOT_TOKEN)
 # Review the purpose of the decorators
 @bot.message_handler(commands=['start', 'hello'])
 def send_welcome(message):
+    """
+    This function will handle welcoming the user
+    
+    Args:
+        message: This will be the text that will trigger the function
+    """
     # This messsage loads when the bot is started
     bot.reply_to(message, "Wassup, how are you doing?")
 
@@ -25,13 +31,13 @@ def sign_handler(message):
     This function will handle the sign of the horoscopes
 
     Args:
-        message: This will be the text wthat will be handled
+        message: This will be the text that will trigger the function
     """
-    # The text is a string literal
+    # The text is a string literal used to send a message from the bot to the user
     text = "What's your zodiac sign?\nChoose one: *Aries*, *Taurus*, *Gemini*, *Cancer,* *Leo*, *Virgo*, *Libra*, *Scorpio*, *Sagittarius*, *Capricorn*, *Aquarius*, and *Pisces*."
-    # Review the syntax of the send_message function
+    # sends a message from the bot to the chat
     sent_msg = bot.send_message(message.chat.id, text, parse_mode="Markdown")
-    # review the syntax of the registe_next_step_handler
+    # review the syntax of the register_next_step_handler
     bot.register_next_step_handler(sent_msg, day_handler)
 
 def day_handler(message):
@@ -53,7 +59,7 @@ def fetch_horoscope(message, sign):
     This function will handle the fetching of the horoscope information
 
     Args:
-        message: This will be the text that will be handled
+        message: This will be the text that will trigger the function
         sign: This will be used to fetch the specific horoscope
     """
     day = message.text
