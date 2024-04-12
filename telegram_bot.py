@@ -18,7 +18,7 @@ bot = telebot.TeleBot(BOT_TOKEN)
 def send_welcome(message):
     """
     This function will handle welcoming the user
-    
+
     Args:
         message: This will be the text that will trigger the function
     """
