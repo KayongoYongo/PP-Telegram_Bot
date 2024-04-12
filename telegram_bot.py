@@ -37,15 +37,17 @@ def sign_handler(message):
     text = "What's your zodiac sign?\nChoose one: *Aries*, *Taurus*, *Gemini*, *Cancer,* *Leo*, *Virgo*, *Libra*, *Scorpio*, *Sagittarius*, *Capricorn*, *Aquarius*, and *Pisces*."
     # sends a message from the bot to the chat
     sent_msg = bot.send_message(message.chat.id, text, parse_mode="Markdown")
+    # Using dir to view the attributes of the sent_msg objects
+    print(dir(sent_msg))
     # review the syntax of the register_next_step_handler
     bot.register_next_step_handler(sent_msg, day_handler)
 
 def day_handler(message):
     """
-    This function will handle the sign of the horoscopes
+    This function will handle the day of the horoscopes
 
     Args:
-        message: This will be the text wthat will be handled
+        message: This will be the text that will trigger the function
     """
     sign = message.text
     text = "What day do you want to know?\nChoose one: *TODAY*, *TOMORROW*, *YESTERDAY*, or a date in format YYYY-MM-DD."
@@ -56,7 +58,7 @@ def day_handler(message):
 
 def fetch_horoscope(message, sign):
     """
-    This function will handle the fetching of the horoscope information
+    Fetches the horoscope information for the specified sign and day and sends it to the user.
 
     Args:
         message: This will be the text that will trigger the function
