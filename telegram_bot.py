@@ -38,7 +38,7 @@ def sign_handler(message):
     # sends a message from the bot to the chat
     sent_msg = bot.send_message(message.chat.id, text, parse_mode="Markdown")
     # Using dir to view the attributes of the sent_msg objects
-    print(dir(sent_msg))
+    print((sent_msg).__str__)
     # review the syntax of the register_next_step_handler
     bot.register_next_step_handler(sent_msg, day_handler)
 
@@ -66,7 +66,9 @@ def fetch_horoscope(message, sign):
     """
     day = message.text
     horoscope = get_daily_horoscope(sign, day)
+    print(horoscope)
     data = horoscope["data"]
+    print(data)
     horoscope_message = f'*Horoscope:* {data["horoscope_data"]}\\n*Sign:* {sign}\\n*Day:* {data["date"]}'
     bot.send_message(message.chat.id, "Here's your horoscope!")
     bot.send_message(message.chat.id, horoscope_message, parse_mode="Markdown")
